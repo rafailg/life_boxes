@@ -1,0 +1,38 @@
+<script lang="ts">
+    const lifeExpectancy = 74
+    let age = 0
+
+    function verifyAge(){
+        if(age > 99){
+            age = 99;
+        }else if (age < 0){
+            age = 0;
+        }
+    }
+</script>
+
+<div class="flex flex-col">
+    <label class="input input-bordered flex items-center gap-2 w-fit self-center">
+        Age:
+        <input type="number" class="grow" min="0" max="99" bind:value={age} on:input={verifyAge}/>
+    </label>
+    
+
+    {#if age < 1}
+        <div class="mt-5 text-lg self-center select-none">Enter your age to get started.</div>
+    {:else}
+        <div class="self-center select-none my-5">Life expectancy: 74</div>
+
+        <div class="w-2/4 m-5 shadow-lg rounded-md self-center flex flex-wrap bg-white">
+            {#each {length: age} as _, i}
+                <div class="m-3 p-3 rounded-lg bg-gray-900 text-white w-fit select-none shadow-md">{i + 1}</div>
+            {/each}
+
+            {#if age < lifeExpectancy}
+                {#each {length: lifeExpectancy - age} as _, i}
+                    <div class="m-3 p-3 rounded-lg bg-green-400 text-black shadow-md w-fit select-none">{i + age + 1}</div>
+                {/each}
+            {/if}
+        </div>
+    {/if}
+</div>
