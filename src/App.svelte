@@ -1,12 +1,23 @@
 <script lang="ts">
     import './fonts.css'
     import YearlyOverview from "./lib/YearlyOverview.svelte";
+    let weekly = false;
 </script>
 
 <main class="w-screen h-screen flex flex-col gradient-background">
-    <div class="w-fit self-center my-10 font-bold header select-none">Life Boxes</div>
+    <div class="w-fit self-center mt-10 font-bold header select-none">Life Boxes</div>
     
-    <YearlyOverview></YearlyOverview>
+    <label class="swap my-5">
+        <input type="checkbox" bind:checked={weekly}/>
+        <div class="swap-on">Switch to weekly</div>
+        <div class="swap-off">Switch to yearly</div>
+    </label>
+    
+    {#if weekly}
+        <div>Weekly not implemented yet</div>        
+    {:else}
+        <YearlyOverview></YearlyOverview>
+    {/if}
 </main>
 
 <style>
