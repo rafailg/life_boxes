@@ -4,7 +4,7 @@
 </script>
 
 <main class="w-screen h-screen flex flex-col gradient-background">
-    <div class="w-fit self-center my-10 font-bold header">Life Boxes</div>
+    <div class="w-fit self-center my-10 font-bold header select-none">Life Boxes</div>
     
     <YearlyOverview></YearlyOverview>
 </main>
