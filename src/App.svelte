@@ -9,8 +9,8 @@
     
     <label class="swap my-5">
         <input type="checkbox" bind:checked={weekly}/>
-        <div class="swap-on">Switch to weekly</div>
-        <div class="swap-off">Switch to yearly</div>
+        <div class="swap-on">Switch to yearly</div>
+        <div class="swap-off">Switch to weekly</div>
     </label>
     
     {#if weekly}
