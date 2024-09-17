@@ -23,14 +23,14 @@
     {:else}
         <div class="self-center select-none my-5">Life expectancy: 74</div>
 
-        <div class="w-2/4 m-5 shadow-lg rounded-md self-center flex flex-wrap bg-white">
+        <div class="w-fit m-5 shadow-lg rounded-md self-center grid grid-cols-10 bg-white">
             {#each {length: age} as _, i}
-                <div class="m-3 p-3 rounded-lg bg-gray-900 text-white w-fit select-none shadow-md">{i + 1}</div>
+                <div class="m-3 p-3 rounded-lg bg-gray-900 text-white w-12 h-12 select-none shadow-md text-center">{i + 1}</div>
             {/each}
 
             {#if age < lifeExpectancy}
                 {#each {length: lifeExpectancy - age} as _, i}
-                    <div class="m-3 p-3 rounded-lg bg-green-400 text-black shadow-md w-fit select-none">{i + age + 1}</div>
+                    <div class="m-3 p-3 rounded-lg bg-green-400 text-black shadow-md w-12 h-12 select-none text-center">{i + age + 1}</div>
                 {/each}
             {/if}
         </div>
