@@ -5,7 +5,7 @@
     let weeklyView = false;
 </script>
 
-<main class="w-screen h-screen flex flex-col gradient-background">
+<main class="w-screen min-h-screen flex flex-col gradient-background">
     <div class="w-fit self-center mt-10 font-bold header select-none">Your Life In Boxes</div>
     
     <label class="swap my-5">
