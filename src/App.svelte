@@ -5,8 +5,8 @@
     let weeklyView = false;
 </script>
 
-<main class="w-screen min-h-screen flex flex-col gradient-background">
-    <div class="w-fit self-center mt-10 font-bold header select-none">Your Life In Boxes</div>
+<main class="max-w-screen min-h-screen flex flex-col gradient-background">
+    <div class="w-fit self-center mt-10 font-bold header select-none">Life In Boxes</div>
     
     <label class="swap my-5">
         <input type="checkbox" bind:checked={weeklyView}/>

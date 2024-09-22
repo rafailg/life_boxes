@@ -40,14 +40,13 @@
 </script>
 
 <div class="flex flex-col">
-    <label class="input input-bordered flex items-center gap-2 w-fit self-center select-none">
-        Date of birth: <input type="date" class="grow" bind:value={dateOfBirthString} on:change={verifyDateOfBirth}>
+    <label class="input w-fit input-bordered flex items-center gap-2 self-center select-none">
+        Date of birth: <input type="date" class="grow w-fit" bind:value={dateOfBirthString} on:change={verifyDateOfBirth}>
     </label>
 
     {#if dateOfBirthString}
         <div class="text-center select-none my-5">Life expectancy: 74</div>
-
-        <div class="h-fit w-10/12 m-5 p-5 flex flex-wrap bg-white rounded-md shadow-md self-center">
+        <div class="h-fit w-10/12 p-5 flex flex-wrap bg-white rounded-md shadow-md self-center">
             {#each {length:ageInWeeks} as _, i}
                 <div class="w-3 h-3 bg-gray-800 rounded-sm m-1"></div>
             {/each}
@@ -59,11 +58,4 @@
             {/if}
         </div>
     {/if}
-
 </div>
-
-<style>
-    .weekly-grid{
-        grid-column: 16;
-    }
-</style>
