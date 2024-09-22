@@ -1,36 +1,47 @@
 <script lang="ts">
+    import { get } from "svelte/store";
+    import { formatDateToInput } from "../dateHelpers";
+    import { dateOfBirthString } from "../stores";
+    import { onMount } from "svelte";
 
     const maxAge = 150;
     
-    let dateOfBirthString: string | null = null;
     let ageInWeeks = 0;
     let lifeExpectancyInWeeks = 74 * 12 * 4;
 
+    // Called when date control is changed by user
     function verifyDateOfBirth(){
-        if(!dateOfBirthString) return;
-        const dateOfBirth = new Date(dateOfBirthString)
-        let currentDate = new Date()
+        let dateOfBirthInput = get(dateOfBirthString)
+        if(!dateOfBirthInput) return;
+        
+        const dateOfBirth = new Date(dateOfBirthInput)
+        const currentDate = new Date()
 
         if(dateOfBirth >= currentDate){
-            dateOfBirthString = null;
+            dateOfBirthString.set(null);
             return;
         }
 
-        let minDate = new Date();
+        const minDate = new Date();
         minDate.setFullYear(currentDate.getFullYear() - maxAge)
 
         if(dateOfBirth < minDate){
-            dateOfBirthString = null;
+            dateOfBirthString.set(null);
             return;
         }
 
         calculateAgeInWeeks()
     }
 
-    function calculateAgeInWeeks(){
-        if(!dateOfBirthString) return;
+    onMount(() => {
+        calculateAgeInWeeks()
+    })
 
-        const dateOfBirth = new Date(dateOfBirthString);
+    function calculateAgeInWeeks(){
+        const dateOfBirthInput = get(dateOfBirthString);
+        if(!dateOfBirthInput) return;
+
+        const dateOfBirth = new Date(dateOfBirthInput);
         const currentDate = new Date();
         if(dateOfBirth === null) return;
         let differenceInMs = Math.abs(currentDate.getTime() - dateOfBirth.getTime())
@@ -41,7 +52,7 @@
 
 <div class="flex flex-col">
     <label class="input w-fit input-bordered flex items-center gap-2 self-center select-none">
-        Date of birth: <input type="date" class="grow w-fit" bind:value={dateOfBirthString} on:change={verifyDateOfBirth}>
+        Date of birth: <input type="date" class="grow w-fit" bind:value={$dateOfBirthString} on:change={verifyDateOfBirth}>
     </label>
 
     {#if dateOfBirthString}
