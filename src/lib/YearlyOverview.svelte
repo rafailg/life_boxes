@@ -22,7 +22,7 @@
     {:else}
         <div class="text-center select-none my-5">Life expectancy: 74</div>
 
-        <div class="w-fit m-5 shadow-md rounded-md self-center grid grid-cols-10 bg-white">
+        <div class="w-fit m-5 shadow-md rounded-md self-center grid md:grid-cols-10 grid-cols-5 bg-white">
             {#each {length: age} as _, i}
                 <div class="m-3 p-3 rounded-md bg-gray-900 text-white w-12 h-12 select-none shadow-md text-center">{i + 1}</div>
             {/each}
