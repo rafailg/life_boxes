@@ -4,7 +4,6 @@
     import { onMount } from "svelte";
     import WeekBox from "./boxes/weekBox.svelte";
 
-
     const maxAge = 150;
     
     let ageInWeeks = 0;
