@@ -1,47 +1,78 @@
-# Svelte + TS + Vite
+# 🎉 Life in Boxes
 
-This template should help get you started developing with Svelte and TypeScript in Vite.
+**Life in Boxes** is a minimalist yet powerful visual tool designed to provide a clearer perspective of a lifetime by representing it with boxes. Each box symbolizes either a week or a year of life, depending on the mode selected. The app also projects the remaining life based on the standard life expectancy, currently set at 76 years.
 
-## Recommended IDE Setup
+## 🌟 Purpose of this Application
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+The primary goal of **Life in Boxes** is to offer a fresh way to visualize the passage of time and emphasize its fleeting nature. Key purposes of the app include:
 
-## Need an official Svelte framework?
+- Providing a **visual representation** of past and remaining life to create an intuitive sense of time.
+- Encouraging **reflection** on the time that has passed and fostering greater awareness of the present moment.
+- Promoting a **mindful approach** to time management and life decisions by illustrating the limited amount of time left.
+- Offering an interactive tool to **recall significant periods** of life by exploring specific weeks and reflecting on how life has evolved.
+- Serving as a **motivational tool** to inspire intentional living and prioritization of meaningful activities.
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+This app was inspired by paper versions of "life boxes" often seen online, but enhances the experience with an interactive, digital format to help users appreciate the present and reflect on the past.
 
-## Technical considerations
+## 📅 Yearly Mode
 
-**Why use this over SvelteKit?**
+In **Yearly Mode**, each box represents **one year** of life.
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
+- **Black boxes**: Represent past years.
+- **Green boxes**: Represent future years, based on the life expectancy of 76.
 
-This template contains as little as possible to get started with Vite + TypeScript + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
+This mode provides a broad overview of life, offering insight into yearly progress.
 
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
+![yearly mode](./readme_images/yearly.png)
 
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
+## 🗓 Weekly Mode
 
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
+In **Weekly Mode**, each box represents **one week** of life.
 
-**Why include `.vscode/extensions.json`?**
+- **Black boxes**: Represent past weeks.
+- **Green boxes**: Represent future weeks.
 
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
+When hovering over a week box, the app displays the week number and its starting date, beginning from the birthdate provided. Since each new week starts on the same day as the birthdate, the weekly mode offers a detailed, granular perspective on life's progress.
 
-**Why enable `allowJs` in the TS template?**
+**Note:** The start of each week is aligned with the birthday provided. For example, if the birthdate falls on a Tuesday, each new life week will start on a Tuesday.
 
-While `allowJs: false` would indeed prevent the use of `.js` files in the project, it does not prevent the use of JavaScript syntax in `.svelte` files. In addition, it would force `checkJs: false`, bringing the worst of both worlds: not being able to guarantee the entire codebase is TypeScript, and also having worse typechecking for the existing JavaScript. In addition, there are valid use cases in which a mixed codebase may be relevant.
+![weekly mode](./readme_images/weekly.png)
 
-**Why is HMR not preserving my local component state?**
+## 🛠 Technology Stack
 
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/rixo/svelte-hmr#svelte-hmr).
+The application is built using modern web technologies to ensure efficiency and simplicity:
 
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
+- **Svelte**: Provides a highly reactive and optimized user interface.
+- **Tailwind CSS**: Enables utility-first, responsive styling.
+- **DaisyUI**: Offers enhanced, ready-to-use user interface components.
 
-```ts
-// store.ts
-// An extremely simple external store
-import { writable } from 'svelte/store'
-export default writable(0)
-```
+The app is fully client-side, with all data stored in the browser's **local storage**. This backend-free design simplifies usage and ensures privacy without unnecessary complexity.
+
+## 🚀 Installation
+
+Follow these steps to set up and run the application locally:
+
+1. Ensure that the latest versions of **Node.js** and **Git** are installed on the system.
+2. Clone this repository:
+   ```bash
+   git clone git@github.com:rafailg/life_boxes.git
+   ```
+3. Navigate to the project directory:
+   ```bash
+   cd life_boxes
+   ```
+4. Install the necessary dependencies:
+   ```bash
+   npm install
+   ```
+5. Start the local development server:
+   ```bash
+   npm run dev
+   ```
+6. Access the application by navigating to [http://localhost:5173](http://localhost:5173) in the browser.
+
+The application is now ready to be used for visualizing a lifetime.
+
+## 💡 Contributing
+
+Contributions are welcome! Whether to report an issue, suggest improvements, or add new features, opening issues or submitting pull requests is encouraged.

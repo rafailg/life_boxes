@@ -3,11 +3,12 @@
     import { dateOfBirthString } from "../stores";
     import { onMount } from "svelte";
     import WeekBox from "./boxes/weekBox.svelte";
+    import { lifeExpectancy } from "../stores";
 
     const maxAge = 150;
     
     let ageInWeeks = 0;
-    let lifeExpectancyInWeeks = 74 * 12 * 4;
+    let lifeExpectancyInWeeks = get(lifeExpectancy) * 12 * 4;
 
     // Called when date control is changed by user
     function verifyDateOfBirth(){
@@ -56,7 +57,7 @@
     </label>
 
     {#if dateOfBirthString}
-        <div class="text-center select-none my-5">Life expectancy: 74</div>
+        <div class="text-center select-none my-5">Life expectancy: {$lifeExpectancy}</div>
         <div class="h-fit w-10/12 p-5 flex flex-wrap bg-white rounded-md shadow-md self-center mb-5">
             {#each {length:ageInWeeks} as _, i}
                 <WeekBox isPast={true} week={i}></WeekBox>

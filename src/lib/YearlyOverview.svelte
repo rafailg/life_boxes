@@ -1,8 +1,7 @@
 <script lang="ts">
     import { get } from "svelte/store";
     import { age } from "../stores";
-    
-    const lifeExpectancy = 74
+    import { lifeExpectancy } from "../stores";
 
     function verifyAge(){
         if(get(age) > 99){
@@ -22,15 +21,15 @@
     {#if $age < 1}
         <div class="mt-5 text-lg self-center select-none">Enter your age to get started.</div>
     {:else}
-        <div class="text-center select-none my-5">Life expectancy: 74</div>
+        <div class="text-center select-none my-5">Life expectancy: {$lifeExpectancy}</div>
 
         <div class="w-fit m-5 shadow-md rounded-md self-center grid md:grid-cols-10 grid-cols-5 bg-white">
             {#each {length: $age} as _, i}
                 <div class="m-3 p-3 rounded-md bg-gray-900 text-white w-12 h-12 select-none shadow-md text-center">{i + 1}</div>
             {/each}
 
-            {#if $age < lifeExpectancy}
-                {#each {length: lifeExpectancy - $age} as _, i}
+            {#if $age < $lifeExpectancy}
+                {#each {length: $lifeExpectancy - $age} as _, i}
                     <div class="m-3 p-3 rounded-md bg-green-400 text-black shadow-md w-12 h-12 select-none text-center">{i + $age + 1}</div>
                 {/each}
             {/if}
