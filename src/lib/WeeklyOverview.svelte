@@ -1,8 +1,9 @@
 <script lang="ts">
     import { get } from "svelte/store";
-    import { formatDateToInput } from "../dateHelpers";
     import { dateOfBirthString } from "../stores";
     import { onMount } from "svelte";
+    import WeekBox from "./boxes/weekBox.svelte";
+
 
     const maxAge = 150;
     
@@ -59,7 +60,7 @@
         <div class="text-center select-none my-5">Life expectancy: 74</div>
         <div class="h-fit w-10/12 p-5 flex flex-wrap bg-white rounded-md shadow-md self-center">
             {#each {length:ageInWeeks} as _, i}
-                <div class="w-3 h-3 bg-gray-800 rounded-sm m-1"></div>
+                <WeekBox week={i}></WeekBox>
             {/each}
 
             {#if ageInWeeks < lifeExpectancyInWeeks}                

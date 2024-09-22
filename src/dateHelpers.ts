@@ -14,3 +14,18 @@ export function formatDateToInput(date: Date): string {
 
     return `${year}-${month}-${day}`;
 }
+
+export function formatDate(date: Date): string {
+    const day = date.getDate();
+    const year = date.getFullYear();
+  
+    const monthNames = [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+    
+    const month = monthNames[date.getMonth()]; // getMonth() returns a zero-based index
+  
+    // Format the date to DD Month YYYY
+    return `${day < 10 ? '0' + day : day} ${month} ${year}`;
+  }
