@@ -22,7 +22,7 @@
     <!-- Parent box -->
     <div class="absolute hidden group-hover:block bg-gray-800 
     rounded-md top-full left-1/2 transform -translate-x-1/2 mt-1
-    text-white z-50 text-center p-3 w-fit whitespace-nowrap text-center">
+    text-white z-50 p-3 w-fit whitespace-nowrap text-center">
         Week {week}
         <div>{formattedDate}</div>
     </div>
